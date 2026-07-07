@@ -1,0 +1,44 @@
+# PRD Web Pemesanan Grill/BBQ
+
+## Nama Produk
+GrillMate BBQ Booking
+
+## Tujuan
+Membuat landing page pemesanan paket grill atau BBQ yang memudahkan pelanggan memilih paket, menentukan jadwal acara, menghitung estimasi biaya, dan mengirim permintaan booking.
+
+## Target Pengguna
+- Keluarga yang ingin mengadakan BBQ di rumah.
+- Komunitas atau kantor yang membutuhkan paket grill untuk gathering.
+- Pelanggan yang ingin menyewa perlengkapan grill lengkap dengan bahan makanan.
+
+## Masalah Pengguna
+- Sulit membandingkan paket BBQ secara cepat.
+- Harga sering tidak jelas sebelum menghubungi admin.
+- Proses booking biasanya tersebar lewat chat manual tanpa ringkasan pesanan.
+
+## Solusi
+Landing page satu halaman yang menampilkan paket, menu favorit, estimasi harga otomatis, dan formulir booking ringkas.
+
+## Fitur Utama
+- Hero section dengan CTA pemesanan.
+- Daftar paket BBQ: Starter, Family, dan Premium.
+- Estimator biaya berdasarkan paket dan jumlah orang.
+- Form booking berisi nama, tanggal, lokasi, jumlah tamu, dan catatan.
+- Tombol kirim pesanan yang membuka WhatsApp dengan ringkasan booking.
+- Tampilan responsif untuk desktop dan mobile.
+
+## Konten Utama
+- Value proposition: "BBQ siap panggang, kami antar dan siapkan."
+- Paket harga per orang.
+- Menu unggulan: beef slice, chicken wings, sausage platter, seafood set, vegetables, dan sauce bar.
+- Informasi layanan: delivery, setup alat, bahan segar, dan opsi grill master.
+
+## Kriteria Sukses
+- Pengguna dapat memahami paket dalam kurang dari 30 detik.
+- Pengguna dapat membuat ringkasan booking tanpa chat bolak-balik.
+- Halaman nyaman digunakan di layar mobile.
+
+## File Implementasi
+- `index.html`
+- `styles.css`
+- `script.js`

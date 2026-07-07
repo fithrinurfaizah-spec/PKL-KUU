@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GrillMate BBQ Booking</title>
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="GrillMate BBQ Booking">
+        <span class="brand-mark">GM</span>
+        <span>GrillMate</span>
+      </a>
+      <nav class="nav-links" aria-label="Navigasi utama">
+        <a href="#paket">Paket</a>
+        <a href="#menu">Menu</a>
+        <a href="#booking">Booking</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-label="Pemesanan BBQ">
+        <div class="hero-media" aria-hidden="true"></div>
+        <div class="hero-content">
+          <p class="eyebrow">Pemesanan grill dan BBQ rumahan</p>
+          <h1>BBQ siap panggang untuk acara yang lebih praktis.</h1>
+          <p class="hero-copy">
+            Pilih paket, tentukan jumlah tamu, lalu kami siapkan bahan segar,
+            alat grill, dan setup di lokasi acara.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#booking">Pesan Sekarang</a>
+            <a class="button secondary" href="#paket">Lihat Paket</a>
+          </div>
+          <dl class="hero-stats" aria-label="Ringkasan layanan">
+            <div>
+              <dt>30+</dt>
+              <dd>menu pilihan</dd>
+            </div>
+            <div>
+              <dt>2 jam</dt>
+              <dd>setup cepat</dd>
+            </div>
+            <div>
+              <dt>15-150</dt>
+              <dd>jumlah tamu</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="section intro">
+        <div>
+          <p class="eyebrow">Layanan lengkap</p>
+          <h2>Datang ke acara tanpa ribet belanja, marinasi, dan bersih-bersih alat.</h2>
+        </div>
+        <div class="service-grid">
+          <article>
+            <span class="icon">01</span>
+            <h3>Bahan siap panggang</h3>
+            <p>Daging, ayam, seafood, sayur, saus, dan condiment dikirim sesuai paket.</p>
+          </article>
+          <article>
+            <span class="icon">02</span>
+            <h3>Peralatan lengkap</h3>
+            <p>Grill pan, tong, arang atau gas portable, piring, dan alat saji tersedia.</p>
+          </article>
+          <article>
+            <span class="icon">03</span>
+            <h3>Opsional grill master</h3>
+            <p>Tambahkan kru panggang untuk acara kantor, ulang tahun, atau family day.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section packages" id="paket">
+        <div class="section-heading">
+          <p class="eyebrow">Pilih paket</p>
+          <h2>Paket BBQ untuk berbagai ukuran acara.</h2>
+        </div>
+        <div class="package-grid">
+          <article class="package-card">
+            <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=900&q=80" alt="Daging BBQ sedang dipanggang" />
+            <div class="package-body">
+              <h3>Starter Grill</h3>
+              <p>Cocok untuk kumpul santai keluarga kecil.</p>
+              <strong>Rp75.000 / orang</strong>
+              <ul>
+                <li>Beef slice, sausage, chicken</li>
+                <li>3 saus pilihan</li>
+                <li>Minimal 15 orang</li>
+              </ul>
+              <button class="select-package" data-package="Starter Grill" data-price="75000">Pilih paket</button>
+            </div>
+          </article>
+          <article class="package-card featured">
+            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=900&q=80" alt="Hidangan BBQ lengkap di meja" />
+            <div class="package-body">
+              <span class="badge">Terlaris</span>
+              <h3>Family BBQ</h3>
+              <p>Paket seimbang untuk ulang tahun dan gathering.</p>
+              <strong>Rp115.000 / orang</strong>
+              <ul>
+                <li>Beef, chicken wings, seafood</li>
+                <li>Sayur, nasi, dan sauce bar</li>
+                <li>Minimal 20 orang</li>
+              </ul>
+              <button class="select-package" data-package="Family BBQ" data-price="115000">Pilih paket</button>
+            </div>
+          </article>
+          <article class="package-card">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=80" alt="BBQ premium dengan potongan daging panggang" />
+            <div class="package-body">
+              <h3>Premium Feast</h3>
+              <p>Untuk event kantor dan acara spesial.</p>
+              <strong>Rp165.000 / orang</strong>
+              <ul>
+                <li>Wagyu slice, ribs, seafood set</li>
+                <li>Grill master 3 jam</li>
+                <li>Minimal 30 orang</li>
+              </ul>
+              <button class="select-package" data-package="Premium Feast" data-price="165000">Pilih paket</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="menu-band" id="menu">
+        <div class="menu-image">
+          <img src="https://images.unsplash.com/photo-1504973960431-1c467e159aa4?auto=format&fit=crop&w=1100&q=80" alt="Aneka bahan BBQ di atas grill" />
+        </div>
+        <div class="menu-content">
+          <p class="eyebrow">Menu favorit</p>
+          <h2>Semua sudah dipotong, dimarinasi, dan dikemas per porsi.</h2>
+          <div class="menu-list">
+            <span>Beef Slice</span>
+            <span>Chicken Wings</span>
+            <span>Sausage Platter</span>
+            <span>Seafood Set</span>
+            <span>Grilled Vegetables</span>
+            <span>Signature Sauce</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section booking-section" id="booking">
+        <div class="booking-copy">
+          <p class="eyebrow">Booking cepat</p>
+          <h2>Buat ringkasan pesanan dalam satu menit.</h2>
+          <p>
+            Isi detail acara untuk melihat estimasi biaya. Setelah itu, kirim
+            ringkasan ke admin lewat WhatsApp.
+          </p>
+          <div class="estimate-box" aria-live="polite">
+            <span>Estimasi total</span>
+            <strong id="estimate">Rp0</strong>
+          </div>
+        </div>
+
+        <form class="booking-form" id="bookingForm">
+          <label>
+            Nama pemesan
+            <input id="name" name="name" type="text" placeholder="Contoh: Fithri" required />
+          </label>
+          <label>
+            Paket
+            <select id="package" name="package" required>
+              <option value="Starter Grill" data-price="75000">Starter Grill - Rp75.000/orang</option>
+              <option value="Family BBQ" data-price="115000" selected>Family BBQ - Rp115.000/orang</option>
+              <option value="Premium Feast" data-price="165000">Premium Feast - Rp165.000/orang</option>
+            </select>
+          </label>
+          <label>
+            Jumlah tamu
+            <input id="guests" name="guests" type="number" min="10" value="20" required />
+          </label>
+          <label>
+            Tanggal acara
+            <input id="date" name="date" type="date" required />
+          </label>
+          <label class="full">
+            Lokasi acara
+            <input id="location" name="location" type="text" placeholder="Alamat atau area acara" required />
+          </label>
+          <label class="full">
+            Catatan tambahan
+            <textarea id="notes" name="notes" rows="4" placeholder="Contoh: butuh grill master, acara mulai jam 18.00"></textarea>
+          </label>
+          <button class="button primary full" type="submit">Kirim Permintaan Booking</button>
+          <p class="form-note" id="formNote">Nomor WhatsApp bisa diganti di file script.js.</p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>GrillMate BBQ Booking</span>
+      <span>Delivery, setup, dan paket BBQ untuk area kotamu.</span>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
