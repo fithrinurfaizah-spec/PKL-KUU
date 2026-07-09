@@ -1,42 +1,50 @@
-# PRD Web Pemesanan Grill/BBQ
+# PRD Web Booking Restoran Grill/BBQ
 
 ## Nama Produk
-GrillMate BBQ Booking
+GrillMate BBQ Restaurant Booking
 
 ## Tujuan
-Membuat landing page pemesanan paket grill atau BBQ yang memudahkan pelanggan memilih paket, menentukan jadwal acara, menghitung estimasi biaya, dan mengirim permintaan booking.
+Membuat landing page reservasi restoran grill/BBQ yang memudahkan pelanggan memilih meja, tanggal, jam, paket makan, menu tambahan, menghitung estimasi biaya, dan mengirim permintaan booking ke admin restoran.
 
 ## Target Pengguna
-- Keluarga yang ingin mengadakan BBQ di rumah.
-- Komunitas atau kantor yang membutuhkan paket grill untuk gathering.
-- Pelanggan yang ingin menyewa perlengkapan grill lengkap dengan bahan makanan.
+- Keluarga yang ingin makan grill/BBQ di restoran.
+- Teman atau komunitas yang ingin booking meja untuk gathering.
+- Pelanggan yang ingin memilih paket makanan sebelum datang.
 
 ## Masalah Pengguna
-- Sulit membandingkan paket BBQ secara cepat.
-- Harga sering tidak jelas sebelum menghubungi admin.
-- Proses booking biasanya tersebar lewat chat manual tanpa ringkasan pesanan.
+- Customer perlu tanya manual untuk ketersediaan meja, area, dan paket makan.
+- Harga paket, biaya area, dan menu tambahan sering tidak terlihat jelas.
+- Admin menerima chat booking yang tidak lengkap sehingga perlu bertanya ulang.
 
 ## Solusi
-Landing page satu halaman yang menampilkan paket, menu favorit, estimasi harga otomatis, dan formulir booking ringkas.
+Landing page satu halaman untuk customer yang menampilkan area meja, paket BBQ, menu a la carte, estimator biaya, dan formulir booking. Hasil booking dikirim ke WhatsApp admin dalam bentuk ringkasan.
 
 ## Fitur Utama
-- Hero section dengan CTA pemesanan.
-- Daftar paket BBQ: Starter, Family, dan Premium.
-- Estimator biaya berdasarkan paket dan jumlah orang.
-- Form booking berisi nama, tanggal, lokasi, jumlah tamu, dan catatan.
-- Tombol kirim pesanan yang membuka WhatsApp dengan ringkasan booking.
+- Hero section dengan CTA reservasi.
+- Daftar area meja: Indoor, Outdoor, VIP Room, dan Private Party Table.
+- Daftar paket BBQ: Starter Grill, Family BBQ, dan Premium Feast.
+- Menu tambahan seperti beef slice, seafood set, fried rice, dan mocktail.
+- Estimator biaya berdasarkan paket, jumlah orang, biaya area, dan add-on menu.
+- Form booking berisi nama, nomor WhatsApp, tanggal, jam, jumlah tamu, area meja, paket makan, menu tambahan, dan catatan.
+- Tombol kirim booking yang membuka WhatsApp admin dengan ringkasan reservasi.
 - Tampilan responsif untuk desktop dan mobile.
 
 ## Konten Utama
-- Value proposition: "BBQ siap panggang, kami antar dan siapkan."
+- Value proposition: "Booking meja BBQ, pilih area, dan pesan menu favoritmu."
 - Paket harga per orang.
-- Menu unggulan: beef slice, chicken wings, sausage platter, seafood set, vegetables, dan sauce bar.
-- Informasi layanan: delivery, setup alat, bahan segar, dan opsi grill master.
+- Menu unggulan: beef slice, chicken wings, sausage platter, seafood set, vegetables, kimchi fried rice, dan mocktail.
+- Informasi area meja, jam booking, paket makan, dan konfirmasi admin.
 
 ## Kriteria Sukses
-- Pengguna dapat memahami paket dalam kurang dari 30 detik.
-- Pengguna dapat membuat ringkasan booking tanpa chat bolak-balik.
+- Pengguna dapat memahami area meja dan paket makan dalam kurang dari 30 detik.
+- Pengguna dapat membuat ringkasan reservasi tanpa chat bolak-balik.
 - Halaman nyaman digunakan di layar mobile.
+
+## Ruang Lingkup MVP
+- Web ini dibuat untuk customer saja.
+- Belum ada login customer.
+- Belum ada dashboard admin.
+- Admin melihat hasil booking dari pesan WhatsApp yang dikirim customer.
 
 ## File Implementasi
 - `index.html`
