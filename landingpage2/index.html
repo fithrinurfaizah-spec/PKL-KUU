@@ -316,7 +316,7 @@
           </label>
           <label>
             Nomor WhatsApp
-            <input id="phone" name="phone" type="tel" placeholder="Contoh: 081234567890" required />
+            <input id="phone" name="phone" type="tel" placeholder="Contoh: 085713418493" required />
           </label>
           <label>
             Paket
@@ -356,15 +356,7 @@
           </label>
           <label>
             Jam booking
-            <select id="time" name="time" required>
-              <option value="" selected disabled>Pilih jam booking</option>
-              <option value="11.00">11.00</option>
-              <option value="12.30">12.30</option>
-              <option value="14.00">14.00</option>
-              <option value="17.00">17.00</option>
-              <option value="18.30">18.30</option>
-              <option value="20.00">20.00</option>
-            </select>
+            <input id="time" name="time" type="time" required />
           </label>
           <label class="full">
             Metode pembayaran
@@ -412,7 +404,7 @@
             <textarea id="notes" name="notes" rows="4" placeholder="Contoh: meja dekat jendela, ada ulang tahun, tidak pedas"></textarea>
           </label>
           <button class="button primary full" type="submit">Kirim Permintaan Booking</button>
-          <p class="form-note" id="formNote">Nomor WhatsApp bisa diganti di file script.js.</p>
+          <p class="form-note" id="formNote">Booking tersimpan ke dashboard admin. Isi nomor WhatsApp admin di script.js kalau ingin langsung membuka WhatsApp.</p>
         </form>
       </section>
     </main>

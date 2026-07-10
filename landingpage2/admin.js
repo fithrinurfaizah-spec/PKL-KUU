@@ -24,7 +24,10 @@ function renderBookings() {
 
   bookingList.innerHTML = bookings
     .map(
-      (booking) => `
+      (booking) => {
+        const addons = booking.addons || [];
+
+        return `
         <article class="booking-item">
           <div class="booking-item-header">
             <div>
@@ -46,7 +49,7 @@ function renderBookings() {
             <div><dt>Paket</dt><dd>${booking.package}</dd></div>
             <div><dt>Pembayaran</dt><dd>${booking.payment || "-"}</dd></div>
             <div><dt>Nominal DP</dt><dd>${booking.deposit || "-"}</dd></div>
-            <div><dt>Menu tambahan</dt><dd>${booking.addons.length ? booking.addons.join(", ") : "-"}</dd></div>
+            <div><dt>Menu tambahan</dt><dd>${addons.length ? addons.join(", ") : "-"}</dd></div>
             <div><dt>Total</dt><dd>${booking.total}</dd></div>
             <div><dt>Masuk</dt><dd>${booking.createdAt}</dd></div>
           </dl>
@@ -56,7 +59,8 @@ function renderBookings() {
           </div>
           <p class="booking-notes">${booking.notes}</p>
         </article>
-      `,
+      `;
+      },
     )
     .join("");
 }
@@ -140,6 +144,19 @@ bookingList.addEventListener("change", (event) => {
 clearBookings.addEventListener("click", () => {
   localStorage.removeItem(bookingStorageKey);
   renderBookings();
+});
+
+window.addEventListener("storage", (event) => {
+  if (event.key === bookingStorageKey) {
+    renderBookings();
+  }
+});
+
+window.addEventListener("focus", renderBookings);
+document.addEventListener("visibilitychange", () => {
+  if (!document.hidden) {
+    renderBookings();
+  }
 });
 
 renderBookings();

@@ -11,7 +11,7 @@ const menuList = document.querySelector(".menu-list");
 const menuPreviewImage = document.querySelector("#menuPreviewImage");
 const menuPreviewTitle = document.querySelector("#menuPreviewTitle");
 
-const whatsappNumber = "6281234567890";
+const whatsappNumber = "";
 const bookingStorageKey = "grillmateBookings";
 
 const rupiah = new Intl.NumberFormat("id-ID", {
@@ -137,7 +137,11 @@ bookingForm.addEventListener("submit", (event) => {
   ].join("\n");
 
   const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-  window.open(url, "_blank", "noopener,noreferrer");
+  if (whatsappNumber) {
+    window.open(url, "_blank", "noopener,noreferrer");
+  } else {
+    alert("Booking berhasil disimpan. Nomor WhatsApp admin belum diatur, jadi data bisa dilihat dulu di dashboard admin.");
+  }
   resetBookingForm();
 });
 
