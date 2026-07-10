@@ -1,15 +1,26 @@
 const bookingStorageKey = "grillmateBookings";
+const backupBookingStorageKey = "grillmateBookingsV2";
 const bookingList = document.querySelector("#bookingList");
 const totalBookings = document.querySelector("#totalBookings");
 const pendingBookings = document.querySelector("#pendingBookings");
 const clearBookings = document.querySelector("#clearBookings");
 
 function getBookings() {
-  return JSON.parse(localStorage.getItem(bookingStorageKey) || "[]");
+  const primaryBookings = JSON.parse(localStorage.getItem(bookingStorageKey) || "[]");
+  const backupBookings = JSON.parse(localStorage.getItem(backupBookingStorageKey) || "[]");
+  const mergedBookings = [...primaryBookings, ...backupBookings];
+  const bookingMap = new Map();
+
+  mergedBookings.forEach((booking) => {
+    bookingMap.set(booking.id, booking);
+  });
+
+  return [...bookingMap.values()].sort((a, b) => String(b.id).localeCompare(String(a.id)));
 }
 
 function saveBookings(bookings) {
   localStorage.setItem(bookingStorageKey, JSON.stringify(bookings));
+  localStorage.setItem(backupBookingStorageKey, JSON.stringify(bookings));
 }
 
 function renderBookings() {
@@ -143,11 +154,12 @@ bookingList.addEventListener("change", (event) => {
 
 clearBookings.addEventListener("click", () => {
   localStorage.removeItem(bookingStorageKey);
+  localStorage.removeItem(backupBookingStorageKey);
   renderBookings();
 });
 
 window.addEventListener("storage", (event) => {
-  if (event.key === bookingStorageKey) {
+  if (event.key === bookingStorageKey || event.key === backupBookingStorageKey) {
     renderBookings();
   }
 });
@@ -158,5 +170,6 @@ document.addEventListener("visibilitychange", () => {
     renderBookings();
   }
 });
+setInterval(renderBookings, 2000);
 
 renderBookings();

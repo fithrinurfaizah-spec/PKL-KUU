@@ -11,8 +11,9 @@ const menuList = document.querySelector(".menu-list");
 const menuPreviewImage = document.querySelector("#menuPreviewImage");
 const menuPreviewTitle = document.querySelector("#menuPreviewTitle");
 
-const whatsappNumber = "";
+const whatsappNumber = "6285713418493";
 const bookingStorageKey = "grillmateBookings";
+const backupBookingStorageKey = "grillmateBookingsV2";
 
 const rupiah = new Intl.NumberFormat("id-ID", {
   style: "currency",
@@ -68,6 +69,7 @@ function saveBooking(booking) {
   const bookings = JSON.parse(localStorage.getItem(bookingStorageKey) || "[]");
   bookings.unshift(booking);
   localStorage.setItem(bookingStorageKey, JSON.stringify(bookings));
+  localStorage.setItem(backupBookingStorageKey, JSON.stringify(bookings));
 }
 
 packageButtons.forEach((button) => {
