@@ -6,8 +6,13 @@ const bookingForm = document.querySelector("#bookingForm");
 const packageButtons = document.querySelectorAll(".select-package");
 const dateInput = document.querySelector("#date");
 const addonInputs = document.querySelectorAll('input[name="addons"]');
+const depositAmount = document.querySelector("#depositAmount");
+const menuList = document.querySelector(".menu-list");
+const menuPreviewImage = document.querySelector("#menuPreviewImage");
+const menuPreviewTitle = document.querySelector("#menuPreviewTitle");
 
 const whatsappNumber = "6281234567890";
+const bookingStorageKey = "grillmateBookings";
 
 const rupiah = new Intl.NumberFormat("id-ID", {
   style: "currency",
@@ -16,11 +21,11 @@ const rupiah = new Intl.NumberFormat("id-ID", {
 });
 
 function getSelectedPrice() {
-  return Number(packageSelect.selectedOptions[0].dataset.price);
+  return Number(packageSelect.selectedOptions[0]?.dataset.price || 0);
 }
 
 function getAreaFee() {
-  return Number(areaSelect.selectedOptions[0].dataset.fee);
+  return Number(areaSelect.selectedOptions[0]?.dataset.fee || 0);
 }
 
 function getAddonTotal() {
@@ -38,7 +43,9 @@ function getSelectedAddons() {
 function updateEstimate() {
   const guests = Math.max(Number(guestInput.value || 0), 0);
   const packageTotal = getSelectedPrice() * guests;
-  estimate.textContent = rupiah.format(packageTotal + getAreaFee() + getAddonTotal());
+  const grandTotal = packageTotal + getAreaFee() + getAddonTotal();
+  estimate.textContent = rupiah.format(grandTotal);
+  depositAmount.textContent = rupiah.format(Math.ceil(grandTotal * 0.3));
 }
 
 function setMinimumDate() {
@@ -48,6 +55,19 @@ function setMinimumDate() {
   const month = String(today.getMonth() + 1).padStart(2, "0");
   const day = String(today.getDate()).padStart(2, "0");
   dateInput.min = `${year}-${month}-${day}`;
+}
+
+function resetBookingForm() {
+  bookingForm.reset();
+  setMinimumDate();
+  dateInput.value = "";
+  updateEstimate();
+}
+
+function saveBooking(booking) {
+  const bookings = JSON.parse(localStorage.getItem(bookingStorageKey) || "[]");
+  bookings.unshift(booking);
+  localStorage.setItem(bookingStorageKey, JSON.stringify(bookings));
 }
 
 packageButtons.forEach((button) => {
@@ -63,29 +83,63 @@ areaSelect.addEventListener("change", updateEstimate);
 guestInput.addEventListener("input", updateEstimate);
 addonInputs.forEach((input) => input.addEventListener("change", updateEstimate));
 
+menuList.addEventListener("click", (event) => {
+  const button = event.target.closest("button");
+
+  if (!button) return;
+
+  menuPreviewImage.src = button.dataset.image;
+  menuPreviewImage.alt = button.dataset.title;
+  menuPreviewTitle.textContent = button.dataset.title;
+});
+
 bookingForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const formData = new FormData(bookingForm);
   const total = estimate.textContent;
+  const deposit = depositAmount.textContent;
   const addons = getSelectedAddons();
+  const booking = {
+    id: `GM-${Date.now()}`,
+    createdAt: new Date().toLocaleString("id-ID"),
+    name: formData.get("name"),
+    phone: formData.get("phone"),
+    package: formData.get("package"),
+    area: formData.get("area"),
+    guests: formData.get("guests"),
+    date: formData.get("date"),
+    time: formData.get("time"),
+    payment: formData.get("payment"),
+    addons,
+    total,
+    deposit,
+    notes: formData.get("notes") || "-",
+    status: "Menunggu konfirmasi",
+  };
+  saveBooking(booking);
+
   const message = [
     "Halo GrillMate, saya ingin reservasi makan di tempat.",
-    `Nama: ${formData.get("name")}`,
-    `No. WhatsApp: ${formData.get("phone")}`,
-    `Paket: ${formData.get("package")}`,
-    `Area meja: ${formData.get("area")}`,
-    `Jumlah tamu: ${formData.get("guests")} orang`,
-    `Tanggal: ${formData.get("date")}`,
-    `Jam: ${formData.get("time")}`,
+    `ID Booking: ${booking.id}`,
+    `Nama: ${booking.name}`,
+    `No. WhatsApp: ${booking.phone}`,
+    `Paket: ${booking.package}`,
+    `Area meja: ${booking.area}`,
+    `Jumlah tamu: ${booking.guests} orang`,
+    `Tanggal: ${booking.date}`,
+    `Jam: ${booking.time}`,
+    `Pembayaran: ${booking.payment}`,
+    `DP 30%: ${booking.deposit}`,
     `Menu tambahan: ${addons.length ? addons.join(", ") : "-"}`,
-    `Estimasi: ${total}`,
-    `Catatan: ${formData.get("notes") || "-"}`,
+    `Estimasi: ${booking.total}`,
+    `Catatan: ${booking.notes}`,
   ].join("\n");
 
   const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
   window.open(url, "_blank", "noopener,noreferrer");
+  resetBookingForm();
 });
 
-setMinimumDate();
-updateEstimate();
+window.addEventListener("pageshow", resetBookingForm);
+resetBookingForm();

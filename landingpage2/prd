@@ -4,7 +4,7 @@
 GrillMate BBQ Restaurant Booking
 
 ## Tujuan
-Membuat landing page reservasi restoran grill/BBQ yang memudahkan pelanggan memilih meja, tanggal, jam, paket makan, menu tambahan, menghitung estimasi biaya, dan mengirim permintaan booking ke admin restoran.
+Membuat landing page reservasi restoran grill/BBQ yang memudahkan pelanggan memilih meja, tanggal, jam, paket makan, menu tambahan, metode pembayaran, menghitung estimasi biaya, dan mengirim permintaan booking ke admin restoran.
 
 ## Target Pengguna
 - Keluarga yang ingin makan grill/BBQ di restoran.
@@ -21,18 +21,26 @@ Landing page satu halaman untuk customer yang menampilkan area meja, paket BBQ, 
 
 ## Fitur Utama
 - Hero section dengan CTA reservasi.
-- Daftar area meja: Indoor, Outdoor, VIP Room, dan Private Party Table.
-- Daftar paket BBQ: Starter Grill, Family BBQ, dan Premium Feast.
-- Menu tambahan seperti beef slice, seafood set, fried rice, dan mocktail.
+- Daftar area meja: Indoor, Window Seat, Outdoor, Sofa Booth, VIP Room, Private Party Table, Family Hall, dan Rooftop Grill.
+- Daftar paket BBQ: Lunch Grill, Couple Grill, Starter Grill, Meat Lover, Family BBQ, Seafood BBQ, Premium Feast, dan Ultimate Wagyu.
+- Menu tambahan seperti beef slice, wagyu slice, short plate, beef ribs, chicken wings, chicken thigh, sausage platter, seafood set, shrimp skewer, squid butter grill, grilled vegetables, kimchi fried rice, cheese dip, fries, garlic butter rice, dessert, mocktail, lemon tea, dan mineral water.
+- Menu favorit bisa diklik untuk menampilkan preview gambar menu.
 - Estimator biaya berdasarkan paket, jumlah orang, biaya area, dan add-on menu.
-- Form booking berisi nama, nomor WhatsApp, tanggal, jam, jumlah tamu, area meja, paket makan, menu tambahan, dan catatan.
+- Harga paket dihitung per orang. Contoh: Couple Grill Rp59.000/orang untuk 2 orang menjadi Rp118.000 sebelum biaya area dan menu tambahan.
+- Form booking berisi nama, nomor WhatsApp, tanggal, jam, jumlah tamu, area meja, paket makan, metode pembayaran, menu tambahan, dan catatan.
+- Pilihan pembayaran: bayar di kasir, DP QRIS 30%, transfer bank DP 30%, dan e-wallet DP 30%.
+- Nominal DP 30% ditampilkan otomatis berdasarkan estimasi total.
 - Tombol kirim booking yang membuka WhatsApp admin dengan ringkasan reservasi.
+- Form customer otomatis dalam keadaan kosong saat halaman dibuka, setelah booking dikirim, atau setelah halaman customer di-refresh.
+- Dashboard admin prototype untuk melihat booking yang tersimpan di browser, tetapi tidak ditampilkan sebagai menu di halaman customer.
+- Dashboard admin menampilkan metode pembayaran, nominal DP, instruksi tindak lanjut, dan tombol WhatsApp untuk mengirim template instruksi pembayaran ke customer.
+- Status booking: Menunggu konfirmasi, Dikonfirmasi, Selesai, dan Dibatalkan.
 - Tampilan responsif untuk desktop dan mobile.
 
 ## Konten Utama
 - Value proposition: "Booking meja BBQ, pilih area, dan pesan menu favoritmu."
 - Paket harga per orang.
-- Menu unggulan: beef slice, chicken wings, sausage platter, seafood set, vegetables, kimchi fried rice, dan mocktail.
+- Menu unggulan: beef slice, chicken wings, sausage platter, seafood set, vegetables, kimchi fried rice, cheese dip, dan mocktail.
 - Informasi area meja, jam booking, paket makan, dan konfirmasi admin.
 
 ## Kriteria Sukses
@@ -41,12 +49,17 @@ Landing page satu halaman untuk customer yang menampilkan area meja, paket BBQ, 
 - Halaman nyaman digunakan di layar mobile.
 
 ## Ruang Lingkup MVP
-- Web ini dibuat untuk customer saja.
+- Web customer untuk membuat booking.
+- Halaman admin prototype untuk melihat booking lokal.
+- Halaman customer tidak menampilkan link admin.
 - Belum ada login customer.
-- Belum ada dashboard admin.
-- Admin melihat hasil booking dari pesan WhatsApp yang dikirim customer.
+- Belum ada login admin.
+- Admin melihat hasil booking dari pesan WhatsApp dan halaman terpisah `admin.html`.
+- Karena belum memakai database, data di `admin.html` hanya tersimpan di browser yang sama.
 
 ## File Implementasi
 - `index.html`
 - `styles.css`
 - `script.js`
+- `admin.html`
+- `admin.js`

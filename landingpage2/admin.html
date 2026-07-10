@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Booking - GrillMate</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="GrillMate BBQ Booking">
+        <span class="brand-mark">GM</span>
+        <span>GrillMate Admin</span>
+      </a>
+      <nav class="nav-links" aria-label="Navigasi admin">
+        <a href="index.html">Website</a>
+        <a href="admin.html">Booking</a>
+      </nav>
+    </header>
+
+    <main class="admin-page">
+      <section class="admin-hero">
+        <div>
+          <p class="eyebrow">Dashboard admin</p>
+          <h1>Daftar booking customer</h1>
+          <p>
+            Untuk prototype statis, data booking tersimpan di browser ini memakai localStorage.
+            Di sistem asli, bagian ini biasanya terhubung ke database dan login admin.
+          </p>
+        </div>
+        <button class="button primary" id="clearBookings" type="button">Hapus Semua Booking</button>
+      </section>
+
+      <section class="admin-summary" aria-label="Ringkasan booking">
+        <article>
+          <span>Total booking</span>
+          <strong id="totalBookings">0</strong>
+        </article>
+        <article>
+          <span>Menunggu</span>
+          <strong id="pendingBookings">0</strong>
+        </article>
+      </section>
+
+      <section class="admin-list" id="bookingList" aria-label="Daftar booking"></section>
+    </main>
+
+    <script src="admin.js"></script>
+  </body>
+</html>
